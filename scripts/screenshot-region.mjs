@@ -1,0 +1,11 @@
+import { chromium } from "playwright";
+const url = process.argv[2];
+const outPath = process.argv[3];
+const scrollY = parseInt(process.argv[4] || "0", 10);
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+await page.evaluate((y) => window.scrollTo(0, y), scrollY);
+await page.waitForTimeout(900);
+await page.screenshot({ path: outPath });
+await browser.close();

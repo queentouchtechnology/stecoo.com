@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -67,11 +68,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <JsonLd data={rootJsonLd()} />
-        <Header />
-        <main id="main-content" className="flex-1 pt-[72px]">
-          {children}
-        </main>
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <Header />
+          <main id="main-content" className="flex-1 pt-[72px]">
+            {children}
+          </main>
+          <Footer />
+        </MotionConfig>
       </body>
     </html>
   );

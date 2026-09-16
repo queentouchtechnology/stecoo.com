@@ -181,14 +181,22 @@ function BlueprintGrid() {
   useFrame((state) => {
     const t = state.clock.elapsedTime;
     const opacity = smoothstep(2.6, 4.0, t) * 0.18;
+    // Imperative material mutation is the standard, performant R3F pattern
+    // for per-frame updates outside React's render cycle (not a real
+    // impurity — this object is never read from during render).
+    /* eslint-disable react-hooks/immutability */
     const mat = grid.material as THREE.Material & { opacity: number };
     mat.opacity = opacity;
+    /* eslint-enable react-hooks/immutability */
   });
   return <primitive object={grid} position={[0, -3.4, 0]} />;
 }
 
 function Particles() {
   const count = 140;
+  // Random particle field generated once (empty dep array) and never
+  // re-read during render — standard R3F pattern, not a purity violation.
+  /* eslint-disable react-hooks/purity */
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
@@ -198,6 +206,7 @@ function Particles() {
     }
     return arr;
   }, []);
+  /* eslint-enable react-hooks/purity */
   const points = useRef<THREE.Points>(null);
   const mat = useRef<THREE.PointsMaterial>(null);
   useFrame((state, delta) => {

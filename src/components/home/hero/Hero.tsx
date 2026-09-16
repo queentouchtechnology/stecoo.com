@@ -29,11 +29,12 @@ export function Hero() {
           priority
           sizes="100vw"
           className={`object-cover object-center transition-opacity duration-1000 ${
-            canRender3D ? "opacity-25" : "opacity-45 animate-[kenburns_18s_ease-in-out_infinite_alternate]"
+            canRender3D ? "opacity-70" : "opacity-60 animate-[kenburns_18s_ease-in-out_infinite_alternate]"
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-ink/10" />
       </div>
 
       {canRender3D && (

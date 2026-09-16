@@ -27,6 +27,10 @@ export function useCanRender3D() {
     const lowMemory = typeof deviceMemory === "number" && deviceMemory > 0 && deviceMemory < 4;
     const hasWebGL = detectWebGL();
 
+    // Capability detection reads window/navigator, which don't exist during
+    // SSR — this must run in an effect after mount; the initial false state
+    // (matching the server render) is what keeps hydration consistent.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCanRender(!reducedMotion && !isNarrow && !lowMemory && hasWebGL);
   }, []);
 
