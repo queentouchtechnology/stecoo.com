@@ -1,0 +1,15 @@
+import { chromium } from "playwright";
+const url = process.argv[2];
+const outPath = process.argv[3];
+const width = parseInt(process.argv[4] || "1440", 10);
+const height = parseInt(process.argv[5] || "1400", 10);
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width, height } });
+const errors = [];
+page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+page.on("pageerror", (e) => errors.push("pageerror: " + e.message));
+await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+await page.waitForTimeout(1200);
+await page.screenshot({ path: outPath, fullPage: true });
+console.log("ERRORS:", JSON.stringify(errors));
+await browser.close();
