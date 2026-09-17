@@ -18,7 +18,16 @@ export default function ProjectsPage() {
   return (
     <>
       <Breadcrumbs items={[{ name: "Projects", href: "/projects" }]} />
-      <PageHeader eyebrow="Projects" title={PROJECTS_INTRO.headline} description={PROJECTS_INTRO.paragraph} />
+      <PageHeader
+        eyebrow="Projects"
+        title={PROJECTS_INTRO.headline}
+        description={PROJECTS_INTRO.paragraph}
+        image={{ src: "/images/hero/aerial-dome-tank-facility-2.webp", alt: "" }}
+        highlights={[
+          { value: String(PROJECTS.length), label: "Documented Case Studies" },
+          { value: "Saudi / UAE", label: "Engineering Team Track Record" },
+        ]}
+      />
       <Section tone="ink" containerClassName="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((project) => (
           <Link

@@ -19,6 +19,11 @@ export default function IndustriesPage() {
         eyebrow="Industries"
         title="Industries We Serve"
         description="STECOO's fabrication and engineering capability applies across process industries — supported by registered business activity and, where documented, direct project experience."
+        image={{ src: "/images/global/horizontal-pressure-vessels-piping-mountain-site.webp", alt: "" }}
+        highlights={[
+          { value: String(INDUSTRIES.length), label: "Industries Served" },
+          { value: "India / GCC", label: "Registered & Team Scope" },
+        ]}
       />
       <Section tone="ink" containerClassName="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {INDUSTRIES.map((ind) => (

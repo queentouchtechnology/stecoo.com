@@ -23,6 +23,8 @@ export default function CompanyProfilePage() {
         eyebrow="Company Profile"
         title={FACILITY_DESCRIPTION.headline}
         description="STECOO's registered and operational presence in Visakhapatnam, Andhra Pradesh, India."
+        image={{ src: "/images/office/stecoo-visakhapatnam-office-building-exterior.webp", alt: "" }}
+        highlights={FACILITY_STATS.slice(0, 4).map((s) => ({ value: `${s.value} ${s.unit}`, label: s.label }))}
       />
       <JsonLd data={localBusinessSchema()} />
 

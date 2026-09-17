@@ -17,7 +17,18 @@ export default function AboutPage() {
   return (
     <>
       <Breadcrumbs items={[{ name: "About", href: "/about" }]} />
-      <PageHeader eyebrow={COMPANY_INTRO.eyebrow} title={COMPANY_INTRO.headline} />
+      <PageHeader
+        eyebrow={COMPANY_INTRO.eyebrow}
+        title={COMPANY_INTRO.headline}
+        description={COMPANY_INTRO.paragraphs[0]}
+        image={{ src: "/images/global/fabrication-shop-interior-crane-plate-work.webp", alt: "" }}
+        highlights={[
+          { value: LEGAL.incorporationDate, label: "LLP Incorporated" },
+          { value: String(BUSINESS_SCOPE.length), label: "Business Scope Areas" },
+          { value: String(WORKFORCE_ROLES.length), label: "Trade Disciplines" },
+          { value: String(SPECIAL_MACHINES.length), label: "Special Machines Built" },
+        ]}
+      />
 
       <Section tone="ink" containerClassName="grid grid-cols-1 gap-16 lg:grid-cols-[1.4fr_1fr]">
         <div>

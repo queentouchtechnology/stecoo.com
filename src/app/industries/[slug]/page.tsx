@@ -36,7 +36,16 @@ export default async function IndustryPage(props: PageProps<"/industries/[slug]"
   return (
     <>
       <Breadcrumbs items={[{ name: "Industries", href: "/industries" }, { name: industry.name, href: `/industries/${industry.slug}` }]} />
-      <PageHeader eyebrow="Industry" title={industry.h1} description={industry.overview} image={industry.gallery[0]} />
+      <PageHeader
+        eyebrow="Industry"
+        title={industry.h1}
+        description={industry.overview}
+        image={industry.gallery[0]}
+        highlights={[
+          { value: String(industry.applications.length), label: "Applications" },
+          { value: String(industry.capabilities.length), label: "STECOO Capabilities" },
+        ]}
+      />
       {faqData && <JsonLd data={faqData} />}
 
       <Section tone="ink" containerClassName="grid grid-cols-1 gap-16 lg:grid-cols-[1.4fr_1fr]">

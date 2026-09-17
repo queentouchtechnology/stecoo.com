@@ -17,7 +17,17 @@ export default function GlobalExperiencePage() {
   return (
     <>
       <Breadcrumbs items={[{ name: "Global Experience", href: "/global-experience" }]} />
-      <PageHeader eyebrow="Global Experience" title={GLOBAL_EXPERIENCE_INTRO.headline} description={GLOBAL_EXPERIENCE_INTRO.paragraph} />
+      <PageHeader
+        eyebrow="Global Experience"
+        title={GLOBAL_EXPERIENCE_INTRO.headline}
+        description={GLOBAL_EXPERIENCE_INTRO.paragraph}
+        image={{ src: "/images/hero/swcc-rabigh-dome-tanks-coastal-aerial.webp", alt: "" }}
+        highlights={[
+          { value: String(GLOBAL_COUNTRIES.length), label: "Countries of Experience" },
+          { value: String(EXPERIENCE_TIMELINE.length), label: "Timeline Milestones" },
+          { value: "~15 yrs", label: "Team GCC Experience" },
+        ]}
+      />
 
       <Section tone="ink">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.3fr_1fr] lg:items-center">

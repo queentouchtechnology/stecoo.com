@@ -22,6 +22,11 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Request a Project Quote"
         description="Tell us about your fabrication, engineering or installation requirement and STECOO's team will respond directly."
+        image={{ src: "/images/global/torishima-pump-station-motor-room.webp", alt: "" }}
+        highlights={[
+          { value: "Call / Email / WhatsApp", label: "Direct Channels" },
+          { value: "Visakhapatnam", label: "Based In" },
+        ]}
       />
       <JsonLd data={localBusinessSchema()} />
 

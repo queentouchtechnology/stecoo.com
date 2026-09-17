@@ -46,7 +46,18 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
   return (
     <>
       <Breadcrumbs items={[{ name: "Services", href: "/capabilities" }, { name: service.name, href: `/services/${service.slug}` }]} />
-      <PageHeader eyebrow="Service" title={service.h1} description={service.intro} image={service.gallery[0]} />
+      <PageHeader
+        eyebrow="Service"
+        title={service.h1}
+        description={service.intro}
+        image={service.gallery[0]}
+        highlights={[
+          { value: String(service.capabilities.length), label: "Technical Capabilities" },
+          { value: String(service.applications.length), label: "Applications" },
+          { value: String(service.process.length), label: "Process Stages" },
+          { value: String(service.relatedIndustries.length), label: "Industries Served" },
+        ]}
+      />
       <JsonLd data={serviceSchema({ name: service.name, description: service.metaDescription, url })} />
       {faqData && <JsonLd data={faqData} />}
 

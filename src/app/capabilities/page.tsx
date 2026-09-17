@@ -22,6 +22,11 @@ export default function CapabilitiesPage() {
         eyebrow="Capabilities"
         title="Eight Disciplines, One Engineering Team"
         description="Every capability below is engineered and fabricated by the same team, from first calculation through final quality checkpoint."
+        highlights={[
+          { value: String(CAPABILITIES.length), label: "Core Disciplines" },
+          { value: "API / ASME / EN 1090", label: "Standards Referenced" },
+          { value: "800 in-dia", label: "Monthly Spool Capacity" },
+        ]}
       />
       <Section tone="ink" containerClassName="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {CAPABILITIES.map((cap) => {

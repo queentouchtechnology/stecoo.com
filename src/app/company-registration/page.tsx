@@ -29,6 +29,10 @@ export default function CompanyRegistrationPage() {
         eyebrow="Company Registration"
         title="Company Registration Details"
         description="Public incorporation and MSME registration facts for STECOO Steeltech Engineering and Construction Operations LLP."
+        highlights={[
+          { value: LEGAL.llpin, label: "LLPIN" },
+          { value: LEGAL.udyamClassification, label: "Udyam Classification" },
+        ]}
       />
 
       <Section tone="ink">
